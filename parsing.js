@@ -1,24 +1,41 @@
 "use strict"
+let array =[]
 
 var fs = require('fs')
 var cheerio = require('cheerio')
-var doc
-
-fs.readFile('post.html', function (err, data) {
-  if (err) {
-    console.error(err)
-  }
-  doc = cheerio.load(data)
+var request = require('request')
 
 
-  extract_usernames(doc)
 
+request({
+  method: 'GET',
+  url: 'https://news.ycombinator.com/'
+}, function(err, response, body){
+  if(err) return console.error(err);
+
+  let $ = cheerio.load(body)
+  $('.sitestr').each(function(){
+    array.push($(this).html());
+  })
+  console.log(array)
 })
 
-function extract_usernames(doc) {
-  doc('span.comhead > a:first-child').filter(function (i, element) {
-    var data = doc(this)
-    console.log(data[0]['children'][0].data)
-  })
-}
 
+
+
+
+
+
+// request({
+//   method: 'GET',
+//   url: 'https://github.com/showcases'
+// }, function(err, response, body){
+//   if(err) return console.error(err);
+//
+//   //Tell Cheerio to load the HTML
+//   $ = cheerio.load(body)
+//   $('.exploregrid-item-title').each(function(){
+//     array.push($(this).html());
+//   });
+//   console.log(array)
+// });
