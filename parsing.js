@@ -1,24 +1,19 @@
 "use strict"
+let array =[]
 
 var fs = require('fs')
 var cheerio = require('cheerio')
-var doc
+var request = require('request')
 
-fs.readFile('post.html', function (err, data) {
-  if (err) {
-    console.error(err)
-  }
-  doc = cheerio.load(data)
+request({
+  method: 'GET',
+  url: 'https://news.ycombinator.com/'
+}, function(err, response, body){
+  if(err) return console.error(err);
 
-
-  extract_usernames(doc)
-
-})
-
-function extract_usernames(doc) {
-  doc('span.comhead > a:first-child').filter(function (i, element) {
-    var data = doc(this)
-    console.log(data[0]['children'][0].data)
+  let $ = cheerio.load(body)
+  $('.storylink').each(function(){
+    array.push($(this).html());
   })
-}
-
+  console.log(array)
+})

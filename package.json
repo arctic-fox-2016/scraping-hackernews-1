@@ -1,0 +1,23 @@
+{
+  "name": "scraping-hackernews-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "parsing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arctic-fox-2016/scraping-hackernews-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arctic-fox-2016/scraping-hackernews-1/issues"
+  },
+  "homepage": "https://github.com/arctic-fox-2016/scraping-hackernews-1#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.74.0"
+  }
+}
