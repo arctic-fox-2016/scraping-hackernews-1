@@ -7,22 +7,14 @@ let user = []
 let story = []
 let comment = []
 let col = ["\x1b[30m",
-    "\x1b[31m",
-    "\x1b[32m",
-    "\x1b[33m",
-    "\x1b[34m",
-    "\x1b[35m",
-    "\x1b[36m",
-    "\x1b[37m"
-  ]
-  // let col = [FgBlack = "\x1b[30m",
-  //   FgRed = "\x1b[31m",
-  //   FgGreen = "\x1b[32m",
-  //   FgYellow = "\x1b[33m",
-  //   FgBlue = "\x1b[34m",
-  //   FgMagenta = "\x1b[35m",
-  //   FgCyan = "\x1b[36m",
-  //   FgWhite = "\x1b[37m"]
+  "\x1b[31m",
+  "\x1b[32m",
+  "\x1b[33m",
+  "\x1b[34m",
+  "\x1b[35m",
+  "\x1b[36m",
+  "\x1b[37m"
+]
 
 request({
   method: 'GET',
